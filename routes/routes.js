@@ -2,8 +2,9 @@ var setCountryRoute = require('./countryRoutes.js');
 var setStateRoute = require('./stateRoutes.js');
 var setUserRoute = require('./userRoutes.js');
 var setDeptRoute = require('./deptRoutes');
+var setRouteForEmployee = require('./employeeRoutes');
 
-var appRouter = function(app) {
+var appRouter = function(app, mongoose) {
     app.all('*', function(req, res, next) {
         var origin = req.get('origin');
         res.header('Access-Control-Allow-Origin', origin);
@@ -14,7 +15,8 @@ var appRouter = function(app) {
     setCountryRoute(app);
     setStateRoute(app);
     setUserRoute(app);
-    setDeptRoute(app);
+    setDeptRoute(app, mongoose);
+    setRouteForEmployee(app, mongoose);
 }
 
 module.exports = appRouter;
