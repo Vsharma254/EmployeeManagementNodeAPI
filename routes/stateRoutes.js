@@ -6,7 +6,7 @@ var setCountryRoute = function(app) {
     var _file = filenames.StateFile;
     var _fileCountry = filenames.CountryFile;
 
-    app.get("/states", function(req, res) {
+    app.get("/api/states", function(req, res) {
         var fileobject = jsonfile.readFileSync(_file);
         var fileobjectCountry = jsonfile.readFileSync(_fileCountry);
 
@@ -39,7 +39,7 @@ var setCountryRoute = function(app) {
         return res.send(objectTemp);
     });
 
-    app.post("/addstate", function(req, res) {
+    app.post("/api/addstate", function(req, res) {
         var fileobject = jsonfile.readFileSync(_file);
         var maxID = Math.max.apply(Math, fileobject.map(function(o) { return o.StateID }));
         console.log(maxID);
@@ -51,7 +51,7 @@ var setCountryRoute = function(app) {
         return res.send(req.body);
     });
 
-    app.post("/deletestate", function(req, res) {
+    app.post("/api/deletestate", function(req, res) {
         console.log(req.body);
         var fileobject = jsonfile.readFileSync(_file);
         var filteredArr = fileobject.filter(function(el) {

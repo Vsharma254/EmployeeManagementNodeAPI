@@ -1,12 +1,12 @@
 var setDeptRoute = function(app, mongoose) {
     var departmentDB = require("./DBModels/departmentModel")(mongoose);
-    app.get("/departments", function(req, res) {
+    app.get("/api/departments", function(req, res) {
         var argumentFilter = {};
         departmentDB.getDepartments(argumentFilter, function(deptList) {
             res.send(deptList);
         });
     });
-    app.post("/adddepartment", function(req, res) {
+    app.post("/api/adddepartment", function(req, res) {
         departmentDB.saveDeparment(req.body, function(error, data) {
             if (error)
                 res.send(error);

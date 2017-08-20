@@ -4,7 +4,7 @@ var filenames = require('../data/filename');
 var setUserRoute = function(app) {
 
     var _file = filenames.UserFile;
-    app.post("/authuser", function(req, res) {
+    app.post("/api/authuser", function(req, res) {
         var fileobject = jsonfile.readFileSync(_file);
         console.log(req.body.userName);
         console.log(req.body.password);
@@ -22,13 +22,13 @@ var setUserRoute = function(app) {
             return res.send(req.body);
     });
 
-    app.get("/users", function(req, res) {
+    app.get("/api/users", function(req, res) {
         var fileobject = jsonfile.readFileSync(_file);
         fileobject.sort(function(a, b) { return a.userID - b.userID });
         return res.send(fileobject);
     });
 
-    app.post("/adduser", function(req, res) {
+    app.post("/api/adduser", function(req, res) {
         var fileobject = jsonfile.readFileSync(_file);
         var maxID = Math.max.apply(Math, fileobject.map(function(o) { return o.userID }));
         console.log(maxID);
