@@ -3,6 +3,7 @@ var setStateRoute = require('./stateRoutes.js');
 var setUserRoute = require('./userRoutes.js');
 var setDeptRoute = require('./deptRoutes');
 var setRouteForEmployee = require('./employeeRoutes');
+var setmessageRoute = require('./chatmessageroute');
 
 var appRouter = function(app, mongoose) {
     app.all('*', function(req, res, next) {
@@ -14,9 +15,11 @@ var appRouter = function(app, mongoose) {
     });
     setCountryRoute(app);
     setStateRoute(app);
-    setUserRoute(app);
+    setUserRoute(app, mongoose);
     setDeptRoute(app, mongoose);
     setRouteForEmployee(app, mongoose);
+    setmessageRoute(app, mongoose);
+
 }
 
 module.exports = appRouter;

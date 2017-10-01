@@ -1,18 +1,19 @@
 {
-    "name": "nodeserver",
-    "version": "1.0.0",
-    "description": "test APi",
-    "main": "app.js",
-    "scripts": {
-        "start": "nodemon app.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "vivek",
-    "license": "ISC",
-    "dependencies": {
-        "body-parser": "^1.17.1",
-        "express": "^4.15.2",
-        "jsonfile": "^2.4.0",
-        "mongoose": "^4.9.6"
-    }
+  "name": "nodeserver",
+  "version": "1.0.0",
+  "description": "test APi",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "vivek",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "jsonfile": "^2.4.0",
+    "mongoose": "^4.9.6",
+    "socket.io": "^2.0.3"
+  }
 }
