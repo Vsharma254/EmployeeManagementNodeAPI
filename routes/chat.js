@@ -14,7 +14,7 @@ module.exports = function(express, mangoose) {
             obj[0].status = 1;
             singleobj = obj[0];
         } else {
-            var singleobj = Object.assign(user, { connectionId: id, status: 1 })
+            var singleobj = Object.assign(user, { connectionId: id, status: 1 });
             allUsers.push(singleobj);
         }
         return singleobj;
