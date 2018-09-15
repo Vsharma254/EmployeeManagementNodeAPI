@@ -64,11 +64,11 @@ module.exports = function(express, mangoose) {
         });
 
         socket.on('send-messageFromClient', (msg) => {
-            // chatModel.saveMessage(msg);
+            chatModel.saveMessage(msg);
             console.log(msg);
-            // let toUser = allUsers.filter((item) => {
-            //     return item.userName == msg.toUser ? true : false;
-            // });
+            let toUser = allUsers.filter((item) => {
+                return item.userName == msg.toUser ? true : false;
+            });
 
             clients.forEach(function(element) {
                 // if (element.id == msg.toUser) {
